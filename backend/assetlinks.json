@@ -1,0 +1,9 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.affinidi.reference.job_portal",
+    "sha256_cert_fingerprints":
+    ["50:77:24:C4:E2:70:BA:6B:B1:E1:B7:9B:B0:4F:F3:69:4B:B0:D7:86:A4:22:18:EA:D8:EE:77:E3:91:CD:FA:5B"]
+  }
+}]
