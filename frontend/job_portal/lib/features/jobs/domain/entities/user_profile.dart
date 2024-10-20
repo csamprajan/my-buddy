@@ -8,9 +8,11 @@ sealed class UserProfile with _$UserProfile {
   const UserProfile._();
   @JsonSerializable(includeIfNull: false)
   const factory UserProfile({
-    String? fullName,
+    String? givenName,
+    String? familyName,
     String? email,
-    String? id,
+    String? did,
+    String? profilepic,
   }) = _UserProfile;
 
   factory UserProfile.fromJson(Map<String, Object?> json) =>

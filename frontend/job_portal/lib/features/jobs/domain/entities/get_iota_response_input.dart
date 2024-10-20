@@ -9,8 +9,8 @@ sealed class GetIotaResponseInput with _$GetIotaResponseInput {
   @JsonSerializable(includeIfNull: false)
   const factory GetIotaResponseInput({
     String? configurationId,
-    String? queryId,
-    String? redirectUri,
+    String? correlationId,
+    String? transactionId,
     String? responseCode,
   }) = _GetIotaResponseInput;
 

@@ -114,7 +114,7 @@ const initializeServer = async () => {
       app.use('/.well-known/did.json', express.static('879ea1b09c909e90548ff0ac3fb568dc-did-document.json'));
       
       app.use('/testlink', express.static('testlink.html'));
-      app.get('/api/iota/start-redirect-flow', startIotaFlow);
+    //   app.get('/api/iota/start-redirect-flow', startIotaFlow);
     app.listen(PORT, () => {
         console.log(`Server listening on ${PORT}`);
     });

@@ -21,9 +21,8 @@ GetIotaResponseOutput _$GetIotaResponseOutputFromJson(
 
 /// @nodoc
 mixin _$GetIotaResponseOutput {
-  String? get vp => throw _privateConstructorUsedError;
-  String? get nounce => throw _privateConstructorUsedError;
-  String? get jwt => throw _privateConstructorUsedError;
+  VerifiablePresentation get vp => throw _privateConstructorUsedError;
+  String get nonce => throw _privateConstructorUsedError;
 
   /// Serializes this GetIotaResponseOutput to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -41,7 +40,9 @@ abstract class $GetIotaResponseOutputCopyWith<$Res> {
           $Res Function(GetIotaResponseOutput) then) =
       _$GetIotaResponseOutputCopyWithImpl<$Res, GetIotaResponseOutput>;
   @useResult
-  $Res call({String? vp, String? nounce, String? jwt});
+  $Res call({VerifiablePresentation vp, String nonce});
+
+  $VerifiablePresentationCopyWith<$Res> get vp;
 }
 
 /// @nodoc
@@ -60,24 +61,29 @@ class _$GetIotaResponseOutputCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? vp = freezed,
-    Object? nounce = freezed,
-    Object? jwt = freezed,
+    Object? vp = null,
+    Object? nonce = null,
   }) {
     return _then(_value.copyWith(
-      vp: freezed == vp
+      vp: null == vp
           ? _value.vp
           : vp // ignore: cast_nullable_to_non_nullable
-              as String?,
-      nounce: freezed == nounce
-          ? _value.nounce
-          : nounce // ignore: cast_nullable_to_non_nullable
-              as String?,
-      jwt: freezed == jwt
-          ? _value.jwt
-          : jwt // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as VerifiablePresentation,
+      nonce: null == nonce
+          ? _value.nonce
+          : nonce // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
+  }
+
+  /// Create a copy of GetIotaResponseOutput
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $VerifiablePresentationCopyWith<$Res> get vp {
+    return $VerifiablePresentationCopyWith<$Res>(_value.vp, (value) {
+      return _then(_value.copyWith(vp: value) as $Val);
+    });
   }
 }
 
@@ -90,7 +96,10 @@ abstract class _$$GetIotaResponseOutputImplCopyWith<$Res>
       __$$GetIotaResponseOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? vp, String? nounce, String? jwt});
+  $Res call({VerifiablePresentation vp, String nonce});
+
+  @override
+  $VerifiablePresentationCopyWith<$Res> get vp;
 }
 
 /// @nodoc
@@ -107,23 +116,18 @@ class __$$GetIotaResponseOutputImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? vp = freezed,
-    Object? nounce = freezed,
-    Object? jwt = freezed,
+    Object? vp = null,
+    Object? nonce = null,
   }) {
     return _then(_$GetIotaResponseOutputImpl(
-      vp: freezed == vp
+      vp: null == vp
           ? _value.vp
           : vp // ignore: cast_nullable_to_non_nullable
-              as String?,
-      nounce: freezed == nounce
-          ? _value.nounce
-          : nounce // ignore: cast_nullable_to_non_nullable
-              as String?,
-      jwt: freezed == jwt
-          ? _value.jwt
-          : jwt // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as VerifiablePresentation,
+      nonce: null == nonce
+          ? _value.nonce
+          : nonce // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -132,22 +136,20 @@ class __$$GetIotaResponseOutputImplCopyWithImpl<$Res>
 
 @JsonSerializable(includeIfNull: false)
 class _$GetIotaResponseOutputImpl extends _GetIotaResponseOutput {
-  const _$GetIotaResponseOutputImpl({this.vp, this.nounce, this.jwt})
+  const _$GetIotaResponseOutputImpl({required this.vp, required this.nonce})
       : super._();
 
   factory _$GetIotaResponseOutputImpl.fromJson(Map<String, dynamic> json) =>
       _$$GetIotaResponseOutputImplFromJson(json);
 
   @override
-  final String? vp;
+  final VerifiablePresentation vp;
   @override
-  final String? nounce;
-  @override
-  final String? jwt;
+  final String nonce;
 
   @override
   String toString() {
-    return 'GetIotaResponseOutput(vp: $vp, nounce: $nounce, jwt: $jwt)';
+    return 'GetIotaResponseOutput(vp: $vp, nonce: $nonce)';
   }
 
   @override
@@ -156,13 +158,12 @@ class _$GetIotaResponseOutputImpl extends _GetIotaResponseOutput {
         (other.runtimeType == runtimeType &&
             other is _$GetIotaResponseOutputImpl &&
             (identical(other.vp, vp) || other.vp == vp) &&
-            (identical(other.nounce, nounce) || other.nounce == nounce) &&
-            (identical(other.jwt, jwt) || other.jwt == jwt));
+            (identical(other.nonce, nonce) || other.nonce == nonce));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, vp, nounce, jwt);
+  int get hashCode => Object.hash(runtimeType, vp, nonce);
 
   /// Create a copy of GetIotaResponseOutput
   /// with the given fields replaced by the non-null parameter values.
@@ -183,20 +184,17 @@ class _$GetIotaResponseOutputImpl extends _GetIotaResponseOutput {
 
 abstract class _GetIotaResponseOutput extends GetIotaResponseOutput {
   const factory _GetIotaResponseOutput(
-      {final String? vp,
-      final String? nounce,
-      final String? jwt}) = _$GetIotaResponseOutputImpl;
+      {required final VerifiablePresentation vp,
+      required final String nonce}) = _$GetIotaResponseOutputImpl;
   const _GetIotaResponseOutput._() : super._();
 
   factory _GetIotaResponseOutput.fromJson(Map<String, dynamic> json) =
       _$GetIotaResponseOutputImpl.fromJson;
 
   @override
-  String? get vp;
+  VerifiablePresentation get vp;
   @override
-  String? get nounce;
-  @override
-  String? get jwt;
+  String get nonce;
 
   /// Create a copy of GetIotaResponseOutput
   /// with the given fields replaced by the non-null parameter values.

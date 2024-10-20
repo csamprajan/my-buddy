@@ -1,15 +1,13 @@
-import 'dart:convert';
-
-import 'package:job_portal/animations/slide-bottom.animation.dart';
+import 'package:go_router/go_router.dart';
 import 'package:job_portal/features/design_system/decorated-text.widget.dart';
 import 'package:job_portal/features/design_system/filled-button-with-feedback-animation.widget.dart';
 import 'package:job_portal/features/jobs/domain/entities/job.dart';
-import 'package:job_portal/features/jobs/presentation/pages/job-application.page.dart';
+import 'package:job_portal/features/jobs/presentation/providers/job.provider.dart';
 import 'package:job_portal/global_constants.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class ViewJobPage extends HookWidget {
+class ViewJobPage extends HookConsumerWidget {
   final Job job;
   ViewJobPage({
     super.key,
@@ -20,16 +18,21 @@ class ViewJobPage extends HookWidget {
 
   _apply({
     required BuildContext context,
+    required JobState jobState,
   }) {
-    Navigator.of(context).push(
-      SlideBottomRoute(
-        page: JobApplicationPage(
-          job: job,
-          // transactionId: _transactionId,
-          // messageId: _messageId,
-        ),
-      ),
+    jobState.setJob(job: job);
+    context.go(
+      '/jobapplication',
     );
+    // Navigator.of(context).push(
+    //   SlideBottomRoute(
+    //     page: JobApplicationPage(
+    //       job: job,
+    //       // transactionId: _transactionId,
+    //       // messageId: _messageId,
+    //     ),
+    //   ),
+    // );
   }
 
   _buildJobImage() {
@@ -140,7 +143,10 @@ class ViewJobPage extends HookWidget {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(
+    BuildContext context,
+    WidgetRef ref,
+  ) {
     return SafeArea(
       child: Scaffold(
         key: _scaffoldKey,
@@ -412,6 +418,7 @@ class ViewJobPage extends HookWidget {
                 onPressed: () {
                   _apply(
                     context: context,
+                    jobState: ref.read(jobStateProvider.notifier),
                   );
                 },
               ),

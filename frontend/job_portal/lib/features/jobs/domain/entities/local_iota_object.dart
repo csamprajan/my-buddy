@@ -11,7 +11,7 @@ sealed class LocalIotaObject with _$LocalIotaObject {
     String? correlationId,
     String? transactionId,
     String? nounce,
-    String? configurationId,
+    // String? configurationId,
   }) = _LocalIotaObject;
 
   factory LocalIotaObject.fromJson(Map<String, Object?> json) =>

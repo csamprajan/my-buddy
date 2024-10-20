@@ -18,7 +18,7 @@ Models are generated using swagger code gen.
 Build tasks are available in build.yaml then run the following command
 ```dart run build_runner build --delete-conflicting-outputs```
 
-
+```flutter run --web-port=1234```
 
 Generate Icon:
 

@@ -12,7 +12,6 @@ _$LocalIotaObjectImpl _$$LocalIotaObjectImplFromJson(
       correlationId: json['correlationId'] as String?,
       transactionId: json['transactionId'] as String?,
       nounce: json['nounce'] as String?,
-      configurationId: json['configurationId'] as String?,
     );
 
 Map<String, dynamic> _$$LocalIotaObjectImplToJson(
@@ -28,6 +27,5 @@ Map<String, dynamic> _$$LocalIotaObjectImplToJson(
   writeNotNull('correlationId', instance.correlationId);
   writeNotNull('transactionId', instance.transactionId);
   writeNotNull('nounce', instance.nounce);
-  writeNotNull('configurationId', instance.configurationId);
   return val;
 }

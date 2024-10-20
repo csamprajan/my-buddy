@@ -21,8 +21,8 @@ GetIotaResponseInput _$GetIotaResponseInputFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$GetIotaResponseInput {
   String? get configurationId => throw _privateConstructorUsedError;
-  String? get queryId => throw _privateConstructorUsedError;
-  String? get redirectUri => throw _privateConstructorUsedError;
+  String? get correlationId => throw _privateConstructorUsedError;
+  String? get transactionId => throw _privateConstructorUsedError;
   String? get responseCode => throw _privateConstructorUsedError;
 
   /// Serializes this GetIotaResponseInput to a JSON map.
@@ -43,8 +43,8 @@ abstract class $GetIotaResponseInputCopyWith<$Res> {
   @useResult
   $Res call(
       {String? configurationId,
-      String? queryId,
-      String? redirectUri,
+      String? correlationId,
+      String? transactionId,
       String? responseCode});
 }
 
@@ -65,8 +65,8 @@ class _$GetIotaResponseInputCopyWithImpl<$Res,
   @override
   $Res call({
     Object? configurationId = freezed,
-    Object? queryId = freezed,
-    Object? redirectUri = freezed,
+    Object? correlationId = freezed,
+    Object? transactionId = freezed,
     Object? responseCode = freezed,
   }) {
     return _then(_value.copyWith(
@@ -74,13 +74,13 @@ class _$GetIotaResponseInputCopyWithImpl<$Res,
           ? _value.configurationId
           : configurationId // ignore: cast_nullable_to_non_nullable
               as String?,
-      queryId: freezed == queryId
-          ? _value.queryId
-          : queryId // ignore: cast_nullable_to_non_nullable
+      correlationId: freezed == correlationId
+          ? _value.correlationId
+          : correlationId // ignore: cast_nullable_to_non_nullable
               as String?,
-      redirectUri: freezed == redirectUri
-          ? _value.redirectUri
-          : redirectUri // ignore: cast_nullable_to_non_nullable
+      transactionId: freezed == transactionId
+          ? _value.transactionId
+          : transactionId // ignore: cast_nullable_to_non_nullable
               as String?,
       responseCode: freezed == responseCode
           ? _value.responseCode
@@ -100,8 +100,8 @@ abstract class _$$GetIotaResponseInputImplCopyWith<$Res>
   @useResult
   $Res call(
       {String? configurationId,
-      String? queryId,
-      String? redirectUri,
+      String? correlationId,
+      String? transactionId,
       String? responseCode});
 }
 
@@ -119,8 +119,8 @@ class __$$GetIotaResponseInputImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? configurationId = freezed,
-    Object? queryId = freezed,
-    Object? redirectUri = freezed,
+    Object? correlationId = freezed,
+    Object? transactionId = freezed,
     Object? responseCode = freezed,
   }) {
     return _then(_$GetIotaResponseInputImpl(
@@ -128,13 +128,13 @@ class __$$GetIotaResponseInputImplCopyWithImpl<$Res>
           ? _value.configurationId
           : configurationId // ignore: cast_nullable_to_non_nullable
               as String?,
-      queryId: freezed == queryId
-          ? _value.queryId
-          : queryId // ignore: cast_nullable_to_non_nullable
+      correlationId: freezed == correlationId
+          ? _value.correlationId
+          : correlationId // ignore: cast_nullable_to_non_nullable
               as String?,
-      redirectUri: freezed == redirectUri
-          ? _value.redirectUri
-          : redirectUri // ignore: cast_nullable_to_non_nullable
+      transactionId: freezed == transactionId
+          ? _value.transactionId
+          : transactionId // ignore: cast_nullable_to_non_nullable
               as String?,
       responseCode: freezed == responseCode
           ? _value.responseCode
@@ -149,7 +149,10 @@ class __$$GetIotaResponseInputImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$GetIotaResponseInputImpl extends _GetIotaResponseInput {
   const _$GetIotaResponseInputImpl(
-      {this.configurationId, this.queryId, this.redirectUri, this.responseCode})
+      {this.configurationId,
+      this.correlationId,
+      this.transactionId,
+      this.responseCode})
       : super._();
 
   factory _$GetIotaResponseInputImpl.fromJson(Map<String, dynamic> json) =>
@@ -158,15 +161,15 @@ class _$GetIotaResponseInputImpl extends _GetIotaResponseInput {
   @override
   final String? configurationId;
   @override
-  final String? queryId;
+  final String? correlationId;
   @override
-  final String? redirectUri;
+  final String? transactionId;
   @override
   final String? responseCode;
 
   @override
   String toString() {
-    return 'GetIotaResponseInput(configurationId: $configurationId, queryId: $queryId, redirectUri: $redirectUri, responseCode: $responseCode)';
+    return 'GetIotaResponseInput(configurationId: $configurationId, correlationId: $correlationId, transactionId: $transactionId, responseCode: $responseCode)';
   }
 
   @override
@@ -176,9 +179,10 @@ class _$GetIotaResponseInputImpl extends _GetIotaResponseInput {
             other is _$GetIotaResponseInputImpl &&
             (identical(other.configurationId, configurationId) ||
                 other.configurationId == configurationId) &&
-            (identical(other.queryId, queryId) || other.queryId == queryId) &&
-            (identical(other.redirectUri, redirectUri) ||
-                other.redirectUri == redirectUri) &&
+            (identical(other.correlationId, correlationId) ||
+                other.correlationId == correlationId) &&
+            (identical(other.transactionId, transactionId) ||
+                other.transactionId == transactionId) &&
             (identical(other.responseCode, responseCode) ||
                 other.responseCode == responseCode));
   }
@@ -186,7 +190,7 @@ class _$GetIotaResponseInputImpl extends _GetIotaResponseInput {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-      runtimeType, configurationId, queryId, redirectUri, responseCode);
+      runtimeType, configurationId, correlationId, transactionId, responseCode);
 
   /// Create a copy of GetIotaResponseInput
   /// with the given fields replaced by the non-null parameter values.
@@ -209,8 +213,8 @@ class _$GetIotaResponseInputImpl extends _GetIotaResponseInput {
 abstract class _GetIotaResponseInput extends GetIotaResponseInput {
   const factory _GetIotaResponseInput(
       {final String? configurationId,
-      final String? queryId,
-      final String? redirectUri,
+      final String? correlationId,
+      final String? transactionId,
       final String? responseCode}) = _$GetIotaResponseInputImpl;
   const _GetIotaResponseInput._() : super._();
 
@@ -220,9 +224,9 @@ abstract class _GetIotaResponseInput extends GetIotaResponseInput {
   @override
   String? get configurationId;
   @override
-  String? get queryId;
+  String? get correlationId;
   @override
-  String? get redirectUri;
+  String? get transactionId;
   @override
   String? get responseCode;
 

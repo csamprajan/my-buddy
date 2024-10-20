@@ -20,9 +20,11 @@ UserProfile _$UserProfileFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$UserProfile {
-  String? get fullName => throw _privateConstructorUsedError;
+  String? get givenName => throw _privateConstructorUsedError;
+  String? get familyName => throw _privateConstructorUsedError;
   String? get email => throw _privateConstructorUsedError;
-  String? get id => throw _privateConstructorUsedError;
+  String? get did => throw _privateConstructorUsedError;
+  String? get profilepic => throw _privateConstructorUsedError;
 
   /// Serializes this UserProfile to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -40,7 +42,12 @@ abstract class $UserProfileCopyWith<$Res> {
           UserProfile value, $Res Function(UserProfile) then) =
       _$UserProfileCopyWithImpl<$Res, UserProfile>;
   @useResult
-  $Res call({String? fullName, String? email, String? id});
+  $Res call(
+      {String? givenName,
+      String? familyName,
+      String? email,
+      String? did,
+      String? profilepic});
 }
 
 /// @nodoc
@@ -58,22 +65,32 @@ class _$UserProfileCopyWithImpl<$Res, $Val extends UserProfile>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? fullName = freezed,
+    Object? givenName = freezed,
+    Object? familyName = freezed,
     Object? email = freezed,
-    Object? id = freezed,
+    Object? did = freezed,
+    Object? profilepic = freezed,
   }) {
     return _then(_value.copyWith(
-      fullName: freezed == fullName
-          ? _value.fullName
-          : fullName // ignore: cast_nullable_to_non_nullable
+      givenName: freezed == givenName
+          ? _value.givenName
+          : givenName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      familyName: freezed == familyName
+          ? _value.familyName
+          : familyName // ignore: cast_nullable_to_non_nullable
               as String?,
       email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String?,
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
+      did: freezed == did
+          ? _value.did
+          : did // ignore: cast_nullable_to_non_nullable
+              as String?,
+      profilepic: freezed == profilepic
+          ? _value.profilepic
+          : profilepic // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -87,7 +104,12 @@ abstract class _$$UserProfileImplCopyWith<$Res>
       __$$UserProfileImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? fullName, String? email, String? id});
+  $Res call(
+      {String? givenName,
+      String? familyName,
+      String? email,
+      String? did,
+      String? profilepic});
 }
 
 /// @nodoc
@@ -103,22 +125,32 @@ class __$$UserProfileImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? fullName = freezed,
+    Object? givenName = freezed,
+    Object? familyName = freezed,
     Object? email = freezed,
-    Object? id = freezed,
+    Object? did = freezed,
+    Object? profilepic = freezed,
   }) {
     return _then(_$UserProfileImpl(
-      fullName: freezed == fullName
-          ? _value.fullName
-          : fullName // ignore: cast_nullable_to_non_nullable
+      givenName: freezed == givenName
+          ? _value.givenName
+          : givenName // ignore: cast_nullable_to_non_nullable
+              as String?,
+      familyName: freezed == familyName
+          ? _value.familyName
+          : familyName // ignore: cast_nullable_to_non_nullable
               as String?,
       email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String?,
-      id: freezed == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
+      did: freezed == did
+          ? _value.did
+          : did // ignore: cast_nullable_to_non_nullable
+              as String?,
+      profilepic: freezed == profilepic
+          ? _value.profilepic
+          : profilepic // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -128,21 +160,27 @@ class __$$UserProfileImplCopyWithImpl<$Res>
 
 @JsonSerializable(includeIfNull: false)
 class _$UserProfileImpl extends _UserProfile {
-  const _$UserProfileImpl({this.fullName, this.email, this.id}) : super._();
+  const _$UserProfileImpl(
+      {this.givenName, this.familyName, this.email, this.did, this.profilepic})
+      : super._();
 
   factory _$UserProfileImpl.fromJson(Map<String, dynamic> json) =>
       _$$UserProfileImplFromJson(json);
 
   @override
-  final String? fullName;
+  final String? givenName;
+  @override
+  final String? familyName;
   @override
   final String? email;
   @override
-  final String? id;
+  final String? did;
+  @override
+  final String? profilepic;
 
   @override
   String toString() {
-    return 'UserProfile(fullName: $fullName, email: $email, id: $id)';
+    return 'UserProfile(givenName: $givenName, familyName: $familyName, email: $email, did: $did, profilepic: $profilepic)';
   }
 
   @override
@@ -150,15 +188,20 @@ class _$UserProfileImpl extends _UserProfile {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UserProfileImpl &&
-            (identical(other.fullName, fullName) ||
-                other.fullName == fullName) &&
+            (identical(other.givenName, givenName) ||
+                other.givenName == givenName) &&
+            (identical(other.familyName, familyName) ||
+                other.familyName == familyName) &&
             (identical(other.email, email) || other.email == email) &&
-            (identical(other.id, id) || other.id == id));
+            (identical(other.did, did) || other.did == did) &&
+            (identical(other.profilepic, profilepic) ||
+                other.profilepic == profilepic));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, fullName, email, id);
+  int get hashCode =>
+      Object.hash(runtimeType, givenName, familyName, email, did, profilepic);
 
   /// Create a copy of UserProfile
   /// with the given fields replaced by the non-null parameter values.
@@ -178,20 +221,26 @@ class _$UserProfileImpl extends _UserProfile {
 
 abstract class _UserProfile extends UserProfile {
   const factory _UserProfile(
-      {final String? fullName,
+      {final String? givenName,
+      final String? familyName,
       final String? email,
-      final String? id}) = _$UserProfileImpl;
+      final String? did,
+      final String? profilepic}) = _$UserProfileImpl;
   const _UserProfile._() : super._();
 
   factory _UserProfile.fromJson(Map<String, dynamic> json) =
       _$UserProfileImpl.fromJson;
 
   @override
-  String? get fullName;
+  String? get givenName;
+  @override
+  String? get familyName;
   @override
   String? get email;
   @override
-  String? get id;
+  String? get did;
+  @override
+  String? get profilepic;
 
   /// Create a copy of UserProfile
   /// with the given fields replaced by the non-null parameter values.

@@ -1,10 +1,10 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:job_portal/features/affinidi-login/presentation/pages/auth_callback.page.dart';
 import 'package:job_portal/features/common/pages/dashboard.page.dart';
-import 'package:job_portal/features/user/presentation/pages/onboarding.page.dart';
+import 'package:job_portal/features/jobs/presentation/pages/job-application.page.dart';
+import 'package:job_portal/home.page.dart';
 import 'package:job_portal/service_registry.dart';
 import 'package:flutter/material.dart';
-import 'package:job_portal/home.page.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
@@ -27,8 +27,8 @@ final GoRouter _router = GoRouter(
     GoRoute(
       path: '/',
       builder: (BuildContext context, GoRouterState state) {
-        // return const HomePage();
-        return const DashboardPage();
+        return const HomePage();
+        // return const DashboardPage();
       },
       routes: <RouteBase>[
         GoRoute(
@@ -38,9 +38,15 @@ final GoRouter _router = GoRouter(
           },
         ),
         GoRoute(
+          path: 'jobapplication',
+          builder: (BuildContext context, GoRouterState state) {
+            return JobApplicationPage();
+          },
+        ),
+        GoRoute(
           path: 'dashboard',
           builder: (BuildContext context, GoRouterState state) {
-            final String userEmail = state.uri.queryParameters["userEmail"]!;
+            // final String userEmail = state.uri.queryParameters["userEmail"]!;
             return const DashboardPage();
           },
         ),

@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:job_portal/features/affinidi-login/data/data_sources/affinidi_auth_api.dart';
 import 'package:job_portal/features/affinidi-login/data/models/complete_auth_input.dart';
 import 'package:job_portal/features/affinidi-login/data/models/init_auth_response.dart';
@@ -21,7 +23,10 @@ class RetrofitAffinidiAuthRepositoryImpl implements AffinidiAuthRepo {
       state: authCodeRedirectUri.queryParameters["state"]!,
     );
     final result = await remoteDataSource.complete(input: input);
-    return ((result as Map<String, dynamic>)["user"] as Map<String, dynamic>);
+    final userMap =
+        ((result as Map<String, dynamic>)["user"] as Map<String, dynamic>);
+    debugPrint("userMap: ${jsonEncode(userMap)}");
+    return userMap;
   }
 
   @override

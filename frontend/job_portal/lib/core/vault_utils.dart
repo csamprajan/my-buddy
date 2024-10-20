@@ -1,5 +1,7 @@
 // import { Environment, EnvironmentUtils } from './environment'
 
+import 'dart:convert';
+
 const LOCAL_VAULT_URL = 'http://localhost:3001';
 const DEV_VAULT_URL = 'https://vault.dev.affinidi.com';
 const PROD_VAULT_URL = 'https://vault.affinidi.com';
@@ -28,18 +30,19 @@ const CLAIM_PATH = '/claim';
 class VaultUtils {
   static String buildShareLink(String request, String clientId) {
     final env = EnvironmentUtils.fetchEnvironment();
-    final params = Uri.parse('').queryParameters;
-    params['request'] = request;
-    params['client_id'] = clientId;
-    final queryString = params.toString();
-    return '${envToWebVaultUrlMap[env] ?? PROD_VAULT_URL}${SHARE_PATH}?${queryString}';
+    final queryString = Uri(queryParameters: {
+      'request': request,
+      'client_id': clientId,
+    }).query;
+    return '${envToWebVaultUrlMap[env] ?? PROD_VAULT_URL}$SHARE_PATH?$queryString';
   }
 
   static String buildClaimLink(String credentialOfferUri) {
     final env = EnvironmentUtils.fetchEnvironment();
-    final params = Uri.parse('').queryParameters;
-    params['credential_offer_uri'] = credentialOfferUri;
-    final queryString = params.toString();
-    return '${envToWebVaultUrlMap[env] ?? PROD_VAULT_URL}${CLAIM_PATH}?${queryString}';
+    final queryString = Uri(queryParameters: {
+      'credential_offer_uri': credentialOfferUri,
+    }).query;
+
+    return '${envToWebVaultUrlMap[env] ?? PROD_VAULT_URL}$CLAIM_PATH?$queryString';
   }
 }

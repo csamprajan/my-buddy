@@ -8,9 +8,11 @@ part of 'user_profile.dart';
 
 _$UserProfileImpl _$$UserProfileImplFromJson(Map<String, dynamic> json) =>
     _$UserProfileImpl(
-      fullName: json['fullName'] as String?,
+      givenName: json['givenName'] as String?,
+      familyName: json['familyName'] as String?,
       email: json['email'] as String?,
-      id: json['id'] as String?,
+      did: json['did'] as String?,
+      profilepic: json['profilepic'] as String?,
     );
 
 Map<String, dynamic> _$$UserProfileImplToJson(_$UserProfileImpl instance) {
@@ -22,8 +24,10 @@ Map<String, dynamic> _$$UserProfileImplToJson(_$UserProfileImpl instance) {
     }
   }
 
-  writeNotNull('fullName', instance.fullName);
+  writeNotNull('givenName', instance.givenName);
+  writeNotNull('familyName', instance.familyName);
   writeNotNull('email', instance.email);
-  writeNotNull('id', instance.id);
+  writeNotNull('did', instance.did);
+  writeNotNull('profilepic', instance.profilepic);
   return val;
 }

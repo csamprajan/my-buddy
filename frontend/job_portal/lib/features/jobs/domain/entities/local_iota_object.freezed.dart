@@ -23,7 +23,6 @@ mixin _$LocalIotaObject {
   String? get correlationId => throw _privateConstructorUsedError;
   String? get transactionId => throw _privateConstructorUsedError;
   String? get nounce => throw _privateConstructorUsedError;
-  String? get configurationId => throw _privateConstructorUsedError;
 
   /// Serializes this LocalIotaObject to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -41,11 +40,7 @@ abstract class $LocalIotaObjectCopyWith<$Res> {
           LocalIotaObject value, $Res Function(LocalIotaObject) then) =
       _$LocalIotaObjectCopyWithImpl<$Res, LocalIotaObject>;
   @useResult
-  $Res call(
-      {String? correlationId,
-      String? transactionId,
-      String? nounce,
-      String? configurationId});
+  $Res call({String? correlationId, String? transactionId, String? nounce});
 }
 
 /// @nodoc
@@ -66,7 +61,6 @@ class _$LocalIotaObjectCopyWithImpl<$Res, $Val extends LocalIotaObject>
     Object? correlationId = freezed,
     Object? transactionId = freezed,
     Object? nounce = freezed,
-    Object? configurationId = freezed,
   }) {
     return _then(_value.copyWith(
       correlationId: freezed == correlationId
@@ -81,10 +75,6 @@ class _$LocalIotaObjectCopyWithImpl<$Res, $Val extends LocalIotaObject>
           ? _value.nounce
           : nounce // ignore: cast_nullable_to_non_nullable
               as String?,
-      configurationId: freezed == configurationId
-          ? _value.configurationId
-          : configurationId // ignore: cast_nullable_to_non_nullable
-              as String?,
     ) as $Val);
   }
 }
@@ -97,11 +87,7 @@ abstract class _$$LocalIotaObjectImplCopyWith<$Res>
       __$$LocalIotaObjectImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String? correlationId,
-      String? transactionId,
-      String? nounce,
-      String? configurationId});
+  $Res call({String? correlationId, String? transactionId, String? nounce});
 }
 
 /// @nodoc
@@ -120,7 +106,6 @@ class __$$LocalIotaObjectImplCopyWithImpl<$Res>
     Object? correlationId = freezed,
     Object? transactionId = freezed,
     Object? nounce = freezed,
-    Object? configurationId = freezed,
   }) {
     return _then(_$LocalIotaObjectImpl(
       correlationId: freezed == correlationId
@@ -135,10 +120,6 @@ class __$$LocalIotaObjectImplCopyWithImpl<$Res>
           ? _value.nounce
           : nounce // ignore: cast_nullable_to_non_nullable
               as String?,
-      configurationId: freezed == configurationId
-          ? _value.configurationId
-          : configurationId // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -148,10 +129,7 @@ class __$$LocalIotaObjectImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$LocalIotaObjectImpl extends _LocalIotaObject {
   const _$LocalIotaObjectImpl(
-      {this.correlationId,
-      this.transactionId,
-      this.nounce,
-      this.configurationId})
+      {this.correlationId, this.transactionId, this.nounce})
       : super._();
 
   factory _$LocalIotaObjectImpl.fromJson(Map<String, dynamic> json) =>
@@ -163,12 +141,10 @@ class _$LocalIotaObjectImpl extends _LocalIotaObject {
   final String? transactionId;
   @override
   final String? nounce;
-  @override
-  final String? configurationId;
 
   @override
   String toString() {
-    return 'LocalIotaObject(correlationId: $correlationId, transactionId: $transactionId, nounce: $nounce, configurationId: $configurationId)';
+    return 'LocalIotaObject(correlationId: $correlationId, transactionId: $transactionId, nounce: $nounce)';
   }
 
   @override
@@ -180,15 +156,13 @@ class _$LocalIotaObjectImpl extends _LocalIotaObject {
                 other.correlationId == correlationId) &&
             (identical(other.transactionId, transactionId) ||
                 other.transactionId == transactionId) &&
-            (identical(other.nounce, nounce) || other.nounce == nounce) &&
-            (identical(other.configurationId, configurationId) ||
-                other.configurationId == configurationId));
+            (identical(other.nounce, nounce) || other.nounce == nounce));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, correlationId, transactionId, nounce, configurationId);
+  int get hashCode =>
+      Object.hash(runtimeType, correlationId, transactionId, nounce);
 
   /// Create a copy of LocalIotaObject
   /// with the given fields replaced by the non-null parameter values.
@@ -211,8 +185,7 @@ abstract class _LocalIotaObject extends LocalIotaObject {
   const factory _LocalIotaObject(
       {final String? correlationId,
       final String? transactionId,
-      final String? nounce,
-      final String? configurationId}) = _$LocalIotaObjectImpl;
+      final String? nounce}) = _$LocalIotaObjectImpl;
   const _LocalIotaObject._() : super._();
 
   factory _LocalIotaObject.fromJson(Map<String, dynamic> json) =
@@ -224,8 +197,6 @@ abstract class _LocalIotaObject extends LocalIotaObject {
   String? get transactionId;
   @override
   String? get nounce;
-  @override
-  String? get configurationId;
 
   /// Create a copy of LocalIotaObject
   /// with the given fields replaced by the non-null parameter values.

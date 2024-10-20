@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:job_portal/features/jobs/domain/entities/verifiable_presentation.dart';
 
 part 'get_iota_response_output.freezed.dart';
 part 'get_iota_response_output.g.dart';
@@ -8,9 +9,8 @@ sealed class GetIotaResponseOutput with _$GetIotaResponseOutput {
   const GetIotaResponseOutput._();
   @JsonSerializable(includeIfNull: false)
   const factory GetIotaResponseOutput({
-    String? vp,
-    String? nounce,
-    String? jwt,
+    required VerifiablePresentation vp,
+    required String nonce,
   }) = _GetIotaResponseOutput;
 
   factory GetIotaResponseOutput.fromJson(Map<String, Object?> json) =>

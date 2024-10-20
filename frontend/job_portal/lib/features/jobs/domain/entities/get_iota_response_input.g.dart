@@ -10,8 +10,8 @@ _$GetIotaResponseInputImpl _$$GetIotaResponseInputImplFromJson(
         Map<String, dynamic> json) =>
     _$GetIotaResponseInputImpl(
       configurationId: json['configurationId'] as String?,
-      queryId: json['queryId'] as String?,
-      redirectUri: json['redirectUri'] as String?,
+      correlationId: json['correlationId'] as String?,
+      transactionId: json['transactionId'] as String?,
       responseCode: json['responseCode'] as String?,
     );
 
@@ -26,8 +26,8 @@ Map<String, dynamic> _$$GetIotaResponseInputImplToJson(
   }
 
   writeNotNull('configurationId', instance.configurationId);
-  writeNotNull('queryId', instance.queryId);
-  writeNotNull('redirectUri', instance.redirectUri);
+  writeNotNull('correlationId', instance.correlationId);
+  writeNotNull('transactionId', instance.transactionId);
   writeNotNull('responseCode', instance.responseCode);
   return val;
 }

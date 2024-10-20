@@ -229,7 +229,9 @@ class DashboardPage extends HookConsumerWidget {
                             tabController.animateTo(tabIndex);
                           },
                         ),
-                        JobsDashboardWidget(),
+                        JobsDashboardWidget(
+                          filterName: "ALL JOBS",
+                        ),
                         // CoursesDashboardWidget(),
                         // UserProfileWidget(),
                         ProfileDashboard(),

@@ -1,6 +1,8 @@
 import 'package:job_portal/animations/slide-bottom.animation.dart';
 import 'package:job_portal/features/common/widgets/location-auto-complete.widget.dart';
 import 'package:job_portal/features/jobs/domain/entities/job.dart';
+import 'package:job_portal/features/jobs/domain/entities/user_profile.dart';
+import 'package:job_portal/features/jobs/domain/repositories/user_profile.provider.dart';
 import 'package:job_portal/features/jobs/presentation/widgets/job-list-tem.widget.dart';
 import 'package:job_portal/global_constants.dart';
 import 'package:flutter/material.dart';
@@ -67,6 +69,14 @@ class OpenerWidget extends HookConsumerWidget {
     WidgetRef ref,
   ) {
     // return Consumer<UserState>(builder: (context, userState, child) {
+    final UserProfile userprofile = ref.read(userModelProvider);
+    final Object imageProvider = (userprofile.profilepic != null)
+        ? NetworkImage(
+            userprofile.profilepic!,
+          )
+        : AssetImage(
+            "assets/profile_pic.jpeg",
+          );
     return Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -170,7 +180,7 @@ class OpenerWidget extends HookConsumerWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Container(
+                  SizedBox(
                     height: 150,
                     child: Stack(
                       alignment: Alignment.topCenter,
@@ -180,11 +190,7 @@ class OpenerWidget extends HookConsumerWidget {
                           color:
                               GlobalConstants.backgroundColor.withOpacity(0.1),
                         ),
-                        Container(
-                            child:
-                                // (userState.userProfile != null)
-                                //     ?
-                                Column(
+                        Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: <Widget>[
@@ -203,12 +209,10 @@ class OpenerWidget extends HookConsumerWidget {
                                   color: Colors.white70,
                                 ),
                                 shape: BoxShape.circle,
-                                image: const DecorationImage(
+                                image: DecorationImage(
                                   fit: BoxFit.contain,
                                   alignment: Alignment.centerLeft,
-                                  image: AssetImage(
-                                    "assets/profile_pic.jpeg",
-                                  ),
+                                  image: imageProvider as ImageProvider,
                                 ),
                               ),
                             ),
@@ -227,14 +231,13 @@ class OpenerWidget extends HookConsumerWidget {
                             ),
                             // Text(userState.userProfile!.fullName ??
                             //     ""),
-                            Text("Sanjay Kumar"),
+                            Text(
+                                "${userprofile.givenName ?? ''} ${userprofile.familyName ?? ''}"),
 
                             // Text(userState.userProfile!.title ?? ""),
                             Text("UI / UX Designer"),
                           ],
-                        )
-                            // : Container(),
-                            ),
+                        ),
                       ],
                     ),
                   ),
