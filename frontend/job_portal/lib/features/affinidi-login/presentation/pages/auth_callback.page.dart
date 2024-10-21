@@ -29,26 +29,30 @@ class AuthCallbackPage extends HookConsumerWidget {
                 .handleOAuthRedirectWeb(GoRouterState.of(context).uri);
 
         print("finished handleRedirect");
-        final List<Map<String, dynamic>> customAttrMapList =
-            user["custom"].cast<Map<String, dynamic>>();
+        // final List<Map<String, dynamic>> customAttrMapList =
+        //     user["custom"].cast<Map<String, dynamic>>();
         String? givenName;
         String? familyName;
         String? email;
         String? did;
-        for (Map<String, dynamic> customAttrMap in customAttrMapList) {
-          if (customAttrMap["givenName"] != null) {
-            givenName = customAttrMap["givenName"];
-          }
-          if (customAttrMap["familyName"] != null) {
-            familyName = customAttrMap["familyName"];
-          }
-          if (customAttrMap["email"] != null) {
-            email = customAttrMap["email"];
-          }
-          if (customAttrMap["did"] != null) {
-            did = customAttrMap["did"];
-          }
-        }
+        // for (Map<String, dynamic> customAttrMap in customAttrMapList) {
+        //   if (customAttrMap["givenName"] != null) {
+        //     givenName = customAttrMap["givenName"];
+        //   }
+        //   if (customAttrMap["familyName"] != null) {
+        //     familyName = customAttrMap["familyName"];
+        //   }
+        //   if (customAttrMap["email"] != null) {
+        //     email = customAttrMap["email"];
+        //   }
+        //   if (customAttrMap["did"] != null) {
+        //     did = customAttrMap["did"];
+        //   }
+        // }
+        givenName = user["given_name"];
+        familyName = user["family_name"];
+        email = user["email"];
+        did = (user["custom"] as Map<String, dynamic>)["did"];
         final UserProfile userProfile = UserProfile(
           givenName: givenName,
           familyName: familyName,

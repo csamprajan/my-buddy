@@ -30,7 +30,7 @@
                 <category android:name="android.intent.category.BROWSABLE" />
                 <data
                     android:scheme="https"
-                    android:host="next-newt-visually.ngrok-free.app"
+                    android:host="seal-fluent-formally.ngrok-free.app"
                     android:pathPrefix="/callback"
 
                 />
